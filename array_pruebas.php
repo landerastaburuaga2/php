@@ -27,4 +27,6 @@ $suma = 0;
 
 //echo "batura : " .$suma;
 
+
+
 ?>
