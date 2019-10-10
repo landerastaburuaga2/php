@@ -1,6 +1,10 @@
 <?php
 $v = [1,5,6];
 $suma = 0;
+$vv = [
+    [1,2,3],
+    [4,5,6]
+    ];
 
 //$suma = $v[0] + $v[1] + $v[2] + $v[3];
 //echo "batura : " . $suma;
@@ -27,6 +31,12 @@ $suma = 0;
 
 //echo "batura : " .$suma;
 
-
-
+for ($i = 0; $i <2; $i++)  {
+    for ($j = 0; $j <3; $j++) 
+        $suma = $suma + $vv[$i][$j];
+}
+//foreach ($v as $x) {
+    //$suma = $suma + $x;    
+//}
+echo "batura : " .$suma;
 ?>
