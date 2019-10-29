@@ -31,12 +31,22 @@ $vv = [
 
 //echo "batura : " .$suma;
 
-for ($i = 0; $i <2; $i++)  {
-    for ($j = 0; $j <3; $j++) 
-        $suma = $suma + $vv[$i][$j];
-}
 //foreach ($v as $x) {
     //$suma = $suma + $x;    
 //}
+
+
+//for ($i = 0; $i <count($vv); $i++)  {
+  //  for ($j = 0; $j <count($vv[0]); $j++) 
+     //   $suma = $suma + $vv[$i][$j];
+//}
+
+$suma = 0;
+foreach ($vv as $v) {
+    foreach($v as $x) {
+        $suma = $suma + $x;
+    }
+}
+
 echo "batura : " .$suma;
 ?>
