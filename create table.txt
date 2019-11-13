@@ -1,0 +1,1 @@
+create table noticias (id int AUTO_INCREMENT PRIMARY KEY,titulo varchar(50),info varchar(255),img varchar(100));

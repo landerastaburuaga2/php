@@ -12,10 +12,12 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
-$user =  $_POST['user'];
-$password = $_POST['password'];
+$user =  $_POST['username'];
+$password = $_POST['pass'];
+$img = $_POST['img'];
+$id = $_POST['id'];
 //
-$sql = "SELECT * FROM usuario WHERE name = '$user';";
+$sql = "INSERT INTO noticias VALUES ('$user','$password','$img','$id');";
 //echo $sql . "<br><br>";
 //
 $result = $conn->query($sql);
@@ -43,7 +45,7 @@ if (($result->num_rows > 0) && ($user == $row["user"]) && (password_verify($pass
 }
 */
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   if ($user == $row["name"]){
       if ($password == $row["password"]) {
@@ -58,6 +60,11 @@ if ($result->num_rows > 0) {
 } else {
     header('Location: read.php');
 }
-
+*/
+if ($result === TRUE) {
+    header('Location: delete_form.php');
+} else{
+   header('Location: read.php');
+  }
 $conn->close();
 ?>
