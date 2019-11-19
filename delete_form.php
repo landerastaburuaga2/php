@@ -39,18 +39,16 @@ if ($result->num_rows > 0) {
         
         </form>
         <br>
-            <input type="submit" value="update">
+            
             <form action="update.php" method="POST">
                 username:<br>
             <input type="text" name="titulo" value="<?php echo $row["titulo"]?>">
                 <br>
                 Password:<br>
             <input type="text" name="info" value="<?php echo $row["info"]?>">
-            <br><br>
-            id:<br>
-            <input type="text" name="id" value="<?php echo $row["id"]?>">
-                <br>
-            <input type="submit" value="Submit">
+            <br> <br>
+            <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+            <input type="submit" value="update">
             </form>
         <hr/> 
         <?php

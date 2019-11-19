@@ -15,12 +15,11 @@ if ($conn->connect_error) {
 $user =  $_POST['username'];
 $password = $_POST['pass'];
 $img = $_POST['img'];
-$id = $_POST['id'];
 //
-$sql = "INSERT INTO noticias VALUES ('$user','$password','$img','$id');";
-//echo $sql . "<br><br>";
+$sql = "INSERT INTO noticias VALUES ('$user','$password','$img');";
+echo $sql . "<br><br>";
 //
-$result = $conn->query($sql);
+//$result = $conn->query($sql);
 
 /*if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -61,10 +60,11 @@ if (($result->num_rows > 0) && ($user == $row["user"]) && (password_verify($pass
     header('Location: read.php');
 }
 */
-if ($result === TRUE) {
+/*if ($result === TRUE) {
     header('Location: delete_form.php');
 } else{
    header('Location: read.php');
   }
+  */
 $conn->close();
 ?>
