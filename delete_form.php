@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="delete_form.css">
+</head>
 <body>
+<div class ="insert"><a href="insert.html"><input type="submit" value="INSERT"></a> <br><hr></div>
 
 
-<a href="insert.html"><input type="submit" value="NEW NOTICE"></a>
     <br>
     
     </body>
@@ -29,8 +32,12 @@ $sql = "SELECT * FROM noticias";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "titulo: " . $row["titulo"]. "<br> info: " . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].  " ><br><hr/>";
+    while($row = $result->fetch_assoc()) {?>
+    
+   
+    <div class ="block">
+     <?php
+        echo "titulo: " . $row["titulo"]. "<br> info: " . $row["info"]. "<br> <img width='20%' src=img/" . $row["img"].  " ><br>";
         ?>
         <form action="delete.php" method="POST">
             <input type="hidden" name="titulo" value="<?php echo $row["titulo"]?>">
@@ -48,9 +55,9 @@ if ($result->num_rows > 0) {
             <input type="text" name="info" value="<?php echo $row["info"]?>">
             <br> <br>
             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
-            <input type="submit" value="update">
-            </form>
-        <hr/> 
+            <input type="submit" value="update"><hr>
+            </form> 
+    </div>
         <?php
     }
 } else {
