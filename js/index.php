@@ -1,5 +1,8 @@
+<html>
 
-// @docs
+<body>
+    <script>
+        // @docs
 // https://darksky.net/dev/docs
 
 // =================================================
@@ -289,3 +292,8 @@ function initGoogleAPI() {
 
 
 insertGoogleScript();
+        </script>
+        <p>gello</p>
+</body>
+
+    </html>

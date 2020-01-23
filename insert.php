@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "lander";
+$password = "Admin1234";
 $dbname = "users";
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -12,12 +12,10 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
-$user =  $_POST['username'];
-$password = $_POST['pass'];
-$img = $_POST['img'];
+$fecha =  $_POST['fechas'];
 
 //
-$sql = "INSERT INTO noticias VALUES ('$user','$password','$img','');";
+$sql = "INSERT INTO fecha VALUES ('','$fecha');";
 //echo $sql . "<br><br>";
 //
 $result = $conn->query($sql);
@@ -62,9 +60,9 @@ if (($result->num_rows > 0) && ($user == $row["user"]) && (password_verify($pass
 }
 */
 if ($result === TRUE) {
-    header('Location: delete_form.php');
+    header('Location: proyecto.php');
 } else{
-   header('Location: login.html');
+   header('Location: insert.html');
   }
   
 $conn->close();

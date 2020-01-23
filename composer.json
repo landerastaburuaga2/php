@@ -1,5 +1,12 @@
 {
     "require": {
-        "dmitry-ivanov/dark-sky-api": "^1.1"
+        "dmitry-ivanov/dark-sky-api": "^1.1",
+        "intervention/image": "^2.5",
+        "php-value-object/temperature": "^0.2.0",
+        "ayeo/temperature": " ~0.1",
+        "cdoco/ansi-styles": "^1.0",
+        "fullcalendar/fullcalendar": "^3.10",
+        "robloach/component-installer": "^0.2.3",
+        "benhall14/php-calendar": "^1.2"
     }
 }

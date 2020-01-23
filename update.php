@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "lander";
+$password = "Admin1234";
 $dbname = "users";
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -12,15 +12,14 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
-$user =  $_POST['titulo'];
-$password = $_POST['info'];
+$fecha =  $_POST['fechas'];
 $id = $_POST['id'];
 //
-$sql = "UPDATE noticias SET titulo ='$user', info ='$password' where id = '$id';";
-//echo $sql . "<br><br>";
+$sql = "UPDATE fecha SET date ='$fecha' where id = '$id';";
+echo $sql . "<br><br>";
 //
 
-$result = $conn->query($sql);
+//$result = $conn->query($sql);
 
 /*if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -63,9 +62,9 @@ if (($result->num_rows > 0) && ($user == $row["user"]) && (password_verify($pass
 */
 
 if ($result === TRUE) {
-    header('Location: delete_form.php');
+    header('Location: proyecto.php');
 } else{
-   header('Location: read.php');
+   header('Location: proyecto.php');
   }
 
 $conn->close();
