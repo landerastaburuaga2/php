@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 $servername = "localhost";
 $username = "lander";
 $password = "Admin1234";
@@ -12,10 +12,15 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
+$event =  $_POST['evento'];
+$_SESSION['evento']=$event;
+$eventos = $_SESSION['evento'];
 $fecha =  $_POST['fechas'];
-
+$_SESSION['fechas']=$fecha;
+$fechas = $_SESSION['fechas'];
+$add1 = $_SESSION['use'];
 //
-$sql = "INSERT INTO fecha VALUES ('','$fecha');";
+$sql = "INSERT INTO fecha VALUES ('','$fecha','$add1','$eventos');";
 //echo $sql . "<br><br>";
 //
 $result = $conn->query($sql);

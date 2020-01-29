@@ -1,10 +1,25 @@
+<?php session_start();
+
+      if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:login1.php");  
+       }
+          echo $_SESSION['use'];
+        
+echo"<br>";
+          echo "Login Success";
+
+          echo "<a href='logout.php'> Logout</a> "; 
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
 </head>
 <body>
 <div><a href="insert.html"><input type="submit" value="INSERT"></a> <br><hr></div>
-
+<div><a href="eventos.php"><input type="submit" value="VISUALIZAR EVENTOS"></a> <br><hr></div>
 
     <br>
     
@@ -13,7 +28,11 @@
 
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
 
-<?php
+
+
+<?php 
+$add = $_SESSION['use'];
+
 require 'vendor/autoload.php';
 use benhall14\phpCalendar\Calendar as Calendar;
 
@@ -30,8 +49,9 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
+$usuario = $_POST['name'];
 $fecha =  $_POST['fechas'];
-$sql = "SELECT date FROM fecha";
+$sql = "SELECT date FROM fecha WHERE user = '$add';";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
@@ -141,6 +161,7 @@ if ($result->num_rows > 0) {
  //echo $calendar->draw(date('Y-m-d'), 'blue');    # print a blue calendar
 
 ?>
+
 
 
 

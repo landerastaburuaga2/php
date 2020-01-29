@@ -1,5 +1,3 @@
-<?php  session_start(); ?>  // session starts with the help of this function 
-
 <?php
 $servername = "localhost";
 $username = "lander";
@@ -14,10 +12,13 @@ if ($conn->connect_error) {
 //echo "Connected successfully";
 // formulariotik bidalitako datuak irakurri
 // leer desde el formulario
-$user =  $_POST['user'];
-$password = $_POST['password'];
+$usuario =  $_POST['name'];
+$pass = $_POST['password'];
+$hash = password_hash($pass, PASSWORD_DEFAULT);
+
+
 //
-$sql = "SELECT * FROM usuario WHERE name = '$user';";
+$sql = "INSERT INTO usuario VALUES ('','$usuario','$hash');";
 //echo $sql . "<br><br>";
 //
 $result = $conn->query($sql);
@@ -45,21 +46,27 @@ if (($result->num_rows > 0) && ($user == $row["user"]) && (password_verify($pass
 }
 */
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   if ($user == $row["name"]){
       if ($password == $row["password"]) {
           //echo "OK";
-          header('Location: proyecto.php');
+          header('Location: delete_form.php');
       } else{
-        header('Location: login.html');
+        header('Location: read.php');
       }
   } else {
-      header('Location: login.html');
+      header('Location: read.php');
   }
 } else {
-    header('Location: login.html');
+    header('Location: read.php');
 }
-
+*/
+if ($result === TRUE) {
+    header('Location: login1.php');
+} else{
+   header('Location: insertusuario.html');
+  }
+  
 $conn->close();
 ?>
