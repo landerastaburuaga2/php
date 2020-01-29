@@ -51,7 +51,7 @@ if ($conn->connect_error) {
 // leer desde el formulario
 $usuario = $_POST['name'];
 $fecha =  $_POST['fechas'];
-$sql = "SELECT date FROM fecha WHERE user = '$add';";
+$sql = "SELECT date,id FROM fecha WHERE user = '$add';";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
@@ -64,11 +64,11 @@ if ($result->num_rows > 0) {
             echo "titulo: " . $row["date"]. "<br>";
        
             //$events = array();
-
+            $url = "eventos.php?id=".$row['id'];
             $events[] = array(
                'start' =>$row["date"],
                'end' =>$row["date"],
-               'summary' => '',
+               'summary' => "<a href=".$url.">link</a>",
                'mask' => true,
                'classes' => ['myclass']
            );

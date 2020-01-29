@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 $servername = "localhost";
 $username = "lander";
 $password = "Admin1234";
