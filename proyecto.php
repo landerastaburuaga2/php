@@ -19,7 +19,6 @@ echo"<br>";
 </head>
 <body>
 <div><a href="insert.html"><input type="submit" value="INSERT"></a> <br><hr></div>
-<div><a href="eventos.php"><input type="submit" value="VISUALIZAR EVENTOS"></a> <br><hr></div>
 
     <br>
     
