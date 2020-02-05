@@ -13,6 +13,23 @@ echo"<br>";
 ?>
 
 
+<script type="text/javascript">
+function ConfirmDemo() {
+//Ingresamos un mensaje a mostrar
+var mensaje = confirm("¿Estas seguro que quieres eliminar tu usuario?");
+//Detectamos si el usuario acepto el mensaje
+if (mensaje) {
+    location.href ="borrar_usuario.php";
+//alert("¡Gracias por aceptar!");
+}
+//Detectamos si el usuario denegó el mensaje
+else {
+alert("¡Haz denegado el mensaje!");
+}
+}
+</script>
+<br>
+<input type="button" onclick="ConfirmDemo()" value="ELIMINAR USUARIO" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +43,6 @@ echo"<br>";
     </html>
 
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
-
 
 
 <?php 
